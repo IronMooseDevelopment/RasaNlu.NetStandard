@@ -18,7 +18,7 @@ namespace BreweryDbStandard.Tests
         }
 
         [TestMethod]
-        public async Task BasicSearch()
+        public async Task BasicSearchAsync()
         {
             var result = await breweryDbApi.Search(key, "Nitro", null);
 
@@ -40,6 +40,44 @@ namespace BreweryDbStandard.Tests
             Assert.AreEqual(result.Status, "success");
             Assert.IsTrue(result.NumberOfPages >= 1);
             Assert.AreEqual(result.CurrentPage, 1);
+        }
+
+        [TestMethod]
+        public async Task BeerTypeSearchAsync()
+        {
+            var searchParams = new SearchParams()
+            {
+                Type = SearchTypes.BEER
+            };
+            var result = await breweryDbApi.Search(key, "Nitro", searchParams);
+
+            Assert.AreEqual(result.Status, "success");
+            Assert.IsTrue(result.NumberOfPages >= 1);
+            Assert.AreEqual(result.CurrentPage, 1);
+            
+            foreach (var item in result.Data)
+            {
+                Assert.AreEqual(item.Type, SearchTypes.BEER);
+            }
+        }
+
+        [TestMethod]
+        public async Task BreweryTypeSearchAsync()
+        {
+            var searchParams = new SearchParams()
+            {
+                Type = SearchTypes.BREWERY
+            };
+            var result = await breweryDbApi.Search(key, "Nitro", searchParams);
+
+            Assert.AreEqual(result.Status, "success");
+            Assert.IsTrue(result.NumberOfPages >= 1);
+            Assert.AreEqual(result.CurrentPage, 1);
+
+            foreach (var item in result.Data)
+            {
+                Assert.AreEqual(item.Type, SearchTypes.BREWERY);
+            }
         }
     }
 }
