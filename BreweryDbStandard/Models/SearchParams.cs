@@ -1,13 +1,12 @@
-﻿using Refit;
+﻿using BreweryDbStandard.Attributes;
 
 namespace BreweryDbStandard.Models
 {
     public class SearchParams
     {
-        [AliasAs("p")]
         public int? PageNumber { get; set; } = null;
 
-        public SearchTypes? Type { get; set; } = null;
+        public SearchTypes Type { get; set; } = SearchTypes.ALL;
 
         public bool? WithBreweries { get; set; } = null;
 
@@ -29,13 +28,5 @@ namespace BreweryDbStandard.Models
         [Premium]
         public string Status { get; set; } = null;
 
-    }
-
-    public enum SearchTypes
-    {
-        BREWERY,
-        BEER,
-        GUILD,
-        EVENT
     }
 }
