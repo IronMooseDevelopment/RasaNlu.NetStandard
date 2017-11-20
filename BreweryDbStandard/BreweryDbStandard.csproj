@@ -1,7 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard1.4</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Cody Swendrowski</Authors>
+    <Company />
+    <Description>A Refit implementation of the BreweryDB API that targets .NET Standard 1.4+</Description>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="refit" Version="4.0.1" />
+  </ItemGroup>
 
 </Project>
