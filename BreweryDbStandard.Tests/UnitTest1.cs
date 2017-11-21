@@ -100,6 +100,7 @@ namespace BreweryDbStandard.Tests
 
                 if (value != null)
                 {
+                    Console.WriteLine("Using config variable");
                     return value;
                 }
             }
@@ -111,6 +112,7 @@ namespace BreweryDbStandard.Tests
 
                 if (value != null)
                 {
+                    Console.WriteLine("Using environment variable");
                     return value;
                 }
             }
