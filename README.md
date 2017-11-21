@@ -1,11 +1,58 @@
 # BreweryDbStandard
-A Refit implementation of the BreweryDB API that targets .NET Standard 1.4+
 
 ## Installation
 
+[Nuget](https://www.nuget.org/packages/BreweryDbStandard/#)
+
+`Install-Package BreweryDbStandard -Version 1.1.0`
+
 ## Usage
 
+### Create a Client
+
+` var client = new BreweryDB("YOUR API KEY");`
+
+### Basic Search
+
+```
+var result = await breweryDbApi.Search("Nitro Stout");
+
+foreach (var beer in result.Data)
+{
+    Console.WriteLine(beer.Name);
+}
+```
+
+### Search with Parameters
+
+```
+var searchParams = new SearchParams()
+{
+    Type = SearchTypes.BEER,
+    WithBreweries = true
+};
+
+var result = await breweryDbApi.Search("Nitro Stout", searchParams);
+
+foreach (var beer in result.Data)
+{
+    Console.WriteLine(beer.Name);
+}
+```
+
+#### A Note on Premium Features
+
+BreweryDB has a collection of premium-only queries and data, documented [here](http://www.brewerydb.com/developers/docs-endpoint/search_index). All `SearchParams` that are premium-only have been annotated `[Premium]`. This library does nothing with this metadata, but it is useful for your reference.
+
 ## Roadmap
+
+- [x] Minimal .NET Standard Version
+- [x] Swap to HttpClient
+- [x] Basic Search Functionality
+- [x] Search Parameters
+- [x] `[Premium]` Annotation
+- [ ] Expand to other API calls
+
 
 ## License
 MIT License
