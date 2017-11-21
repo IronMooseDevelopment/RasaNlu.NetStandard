@@ -4,7 +4,7 @@
 
 [Nuget](https://www.nuget.org/packages/BreweryDbStandard/#)
 
-`Install-Package BreweryDbStandard -Version 1.1.0`
+`Install-Package BreweryDbStandard -Version 1.1.1`
 
 ## Usage
 
