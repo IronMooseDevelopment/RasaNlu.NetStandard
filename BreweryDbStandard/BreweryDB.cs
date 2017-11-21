@@ -16,12 +16,19 @@ namespace BreweryDbStandard
 
         const string ApiUrl = "http://api.brewerydb.com/v2/";
 
-        public async Task<BreweryDbResponse> Search(string key, string searchQuery, SearchParams searchParams = null)
+        private string ApiKey { get; set; }
+
+        public BreweryDB(string key)
+        {
+            ApiKey = key;
+        }
+
+        public async Task<BreweryDbResponse> Search(string searchQuery, SearchParams searchParams = null)
         {
             var builder = new UriBuilder(ApiUrl + "/search");
             var query = new ParameterCollection();
 
-            query.Add("key", key);
+            query.Add("key", ApiKey);
             query.Add("q", searchQuery);
 
             AddQueryParams(query, searchParams);

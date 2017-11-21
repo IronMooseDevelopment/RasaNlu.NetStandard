@@ -6,7 +6,7 @@
     <Authors>Cody Swendrowski</Authors>
     <Company />
     <Description>A simple HttpClient implementation of the BreweryDB API that targets .NET Standard 1.1+</Description>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
     <PackageProjectUrl>https://github.com/cswendrowski/BreweryDbStandard</PackageProjectUrl>
     <PackageLicenseUrl>https://choosealicense.com/licenses/mit/</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/cswendrowski/BreweryDbStandard</RepositoryUrl>

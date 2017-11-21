@@ -1,6 +1,8 @@
 ﻿using BreweryDbStandard.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace BreweryDbStandard.Tests
 {
@@ -10,18 +12,16 @@ namespace BreweryDbStandard.Tests
 
         BreweryDB breweryDbApi;
 
-        const string key = "cb3c812ce7937e5b778a5bb72bd224b8";
-
         [TestInitialize]
         public void Initialize()
         {
-            breweryDbApi = new BreweryDB();
+            breweryDbApi = new BreweryDB(GetSecret("BreweryDbApiKey"));
         }
 
         [TestMethod]
         public async Task BasicSearchAsync()
         {
-            var result = await breweryDbApi.Search(key, "Nitro");
+            var result = await breweryDbApi.Search("Nitro");
 
             Assert.AreEqual("success", result.Status);
             Assert.IsTrue(result.NumberOfPages >= 1);
@@ -38,7 +38,7 @@ namespace BreweryDbStandard.Tests
                 WithBreweries = true
             };
 
-            var result = await breweryDbApi.Search(key, "Nitro", searchParams);
+            var result = await breweryDbApi.Search("Nitro", searchParams);
 
             Assert.AreEqual("success", result.Status);
             Assert.IsTrue(result.NumberOfPages >= 1);
@@ -58,7 +58,7 @@ namespace BreweryDbStandard.Tests
                 Type = SearchTypes.BEER
             };
 
-            var result = await breweryDbApi.Search(key, "Nitro", searchParams);
+            var result = await breweryDbApi.Search("Nitro", searchParams);
 
             Assert.AreEqual("success", result.Status);
             Assert.IsTrue(result.NumberOfPages >= 1);
@@ -78,7 +78,7 @@ namespace BreweryDbStandard.Tests
                 Type = SearchTypes.BREWERY
             };
 
-            var result = await breweryDbApi.Search(key, "Lakefront", searchParams);
+            var result = await breweryDbApi.Search("Lakefront", searchParams);
 
             Assert.AreEqual("success", result.Status);
             Assert.IsTrue(result.NumberOfPages >= 1);
@@ -88,6 +88,35 @@ namespace BreweryDbStandard.Tests
             {
                 Assert.AreEqual(SearchTypes.BREWERY.Value, item.Type);
             }
+        }
+
+        private string GetSecret(string key)
+        {
+            var value = "";
+
+            try
+            {
+                value = Properties.Settings.Default[key].ToString();
+
+                if (value != null)
+                {
+                    return value;
+                }
+            }
+            catch (Exception e) { }
+
+            try
+            {
+                value = Environment.GetEnvironmentVariable(key);
+
+                if (value != null)
+                {
+                    return value;
+                }
+            }
+            catch (Exception e) { }
+
+            throw new Exception("Key " + key + " not found");
         }
     }
 }

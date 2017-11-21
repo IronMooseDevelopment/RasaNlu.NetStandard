@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BreweryDbStandard.Tests.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BreweryDbApiKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">cb3c812ce7937e5b778a5bb72bd224b8</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
