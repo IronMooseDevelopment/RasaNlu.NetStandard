@@ -96,7 +96,7 @@ namespace BreweryDbStandard
         public long StyleId { get; set; }
 
         [JsonProperty("type")]
-        public SearchTypes Type { get; set; }
+        public string Type { get; set; }
 
         [JsonProperty("updateDate")]
         public string UpdateDate { get; set; }
