@@ -23,11 +23,6 @@ namespace BreweryDbStandard.Tests
         {
             var result = await breweryDbApi.Search("Nitro");
 
-            foreach (var beer in result.Data)
-            {
-                Console.WriteLine(beer.Name);
-            }
-
             Assert.AreEqual("success", result.Status);
             Assert.IsTrue(result.NumberOfPages >= 1);
             Assert.AreEqual(1, result.CurrentPage);
@@ -105,7 +100,6 @@ namespace BreweryDbStandard.Tests
 
                 if (value != null)
                 {
-                    Console.WriteLine("Using config variable");
                     return value;
                 }
             }
@@ -117,7 +111,6 @@ namespace BreweryDbStandard.Tests
 
                 if (value != null)
                 {
-                    Console.WriteLine("Using environment variable");
                     return value;
                 }
             }
