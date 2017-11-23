@@ -1,5 +1,7 @@
 # BreweryDbStandard
 
+![](https://cswendrowski.visualstudio.com/_apis/public/build/definitions/ec071271-3590-43d2-b089-e62d4b125c9a/5/badge)
+
 ## Installation
 
 [Nuget](https://www.nuget.org/packages/BreweryDbStandard/#)
