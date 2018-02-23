@@ -12,12 +12,14 @@
 
 ### Create a Client
 
-` var client = new BreweryDB("YOUR API KEY");`
+```csharp
+var breweryDbClient = new BreweryDB("YOUR API KEY");
+```
 
 ### Basic Search
 
-```
-var result = await breweryDbApi.Search("Nitro Stout");
+```csharp
+var result = await breweryDbClient.Search("Nitro Stout");
 
 foreach (var beer in result.Data)
 {
@@ -27,14 +29,14 @@ foreach (var beer in result.Data)
 
 ### Search with Parameters
 
-```
+```csharp
 var searchParams = new SearchParams()
 {
     Type = SearchTypes.BEER,
     WithBreweries = true
 };
 
-var result = await breweryDbApi.Search("Nitro Stout", searchParams);
+var result = await breweryDbClient.Search("Nitro Stout", searchParams);
 
 foreach (var beer in result.Data)
 {
