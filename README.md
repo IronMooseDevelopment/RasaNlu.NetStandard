@@ -1,12 +1,7 @@
 # BreweryDbStandard
 
 ![](https://cswendrowski.visualstudio.com/_apis/public/build/definitions/ec071271-3590-43d2-b089-e62d4b125c9a/5/badge)
-
-## Installation
-
-[Nuget](https://www.nuget.org/packages/BreweryDbStandard/#)
-
-`Install-Package BreweryDbStandard -Version 1.1.1`
+[![NuGet](https://img.shields.io/nuget/v/BreweryDbStandard.svg)](https://www.nuget.org/packages/BreweryDbStandard)
 
 ## Usage
 
