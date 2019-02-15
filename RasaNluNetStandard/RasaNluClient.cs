@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IronMooseDevelopment.RasaNlu
 {
-    public class RasaNluClient
+    public class RasaNluClient : IRasaNluClient
     {
         static readonly HttpClient Client = new HttpClient();
 
@@ -20,17 +20,17 @@ namespace IronMooseDevelopment.RasaNlu
 
         #region Parse
 
-        public async Task<DialogflowParseResponse> ParseAsDialogflow(string parseQuery, string project)
+        public virtual async Task<DialogflowParseResponse> ParseAsDialogflow(string parseQuery, string project)
         {
             return await Parse<DialogflowParseResponse>(parseQuery, project);
         }
 
-        public async Task<LuisParseResponse> ParseAsLuis(string parseQuery, string project)
+        public virtual async Task<LuisParseResponse> ParseAsLuis(string parseQuery, string project)
         {
             return await Parse<LuisParseResponse>(parseQuery, project);
         }
 
-        public async Task<RasaParseResponse> ParseAsRasa(string parseQuery, string project)
+        public virtual async Task<RasaParseResponse> ParseAsRasa(string parseQuery, string project)
         {
             return await Parse<RasaParseResponse>(parseQuery, project);
         }

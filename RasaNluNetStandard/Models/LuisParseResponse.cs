@@ -21,7 +21,7 @@ namespace IronMooseDevelopment.RasaNlu.Models
     public partial class LuisEntity
     {
         [JsonProperty("entity")]
-        public string EntityEntity { get; set; }
+        public string Entity { get; set; }
 
         [JsonProperty("type")]
         public string Type { get; set; }

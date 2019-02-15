@@ -11,6 +11,9 @@
     <PackageLicenseUrl>https://choosealicense.com/licenses/mit/</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/IronMooseDevelopment/RasaNlu.NetStandard</RepositoryUrl>
     <PackageId>RasaNlu.NetStandard</PackageId>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <Product>RasaNlu.NetStandard</Product>
+    <PackageIconUrl>https://ironmoosedevelopment.com/assets/img/favicon.png</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>
