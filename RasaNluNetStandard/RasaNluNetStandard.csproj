@@ -4,12 +4,13 @@
     <TargetFramework>netstandard1.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Cody Swendrowski</Authors>
-    <Company />
+    <Company>Iron Moose Development</Company>
     <Description>A simple HttpClient implementation of the RASA NLU API that targets .NET Standard 1.1+</Description>
     <Version>1.0.0</Version>
     <PackageProjectUrl>https://github.com/IronMooseDevelopment/RasaNlu.NetStandard</PackageProjectUrl>
     <PackageLicenseUrl>https://choosealicense.com/licenses/mit/</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/IronMooseDevelopment/RasaNlu.NetStandard</RepositoryUrl>
+    <PackageId>RasaNlu.NetStandard</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
