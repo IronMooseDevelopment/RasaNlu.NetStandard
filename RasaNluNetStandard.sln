@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreweryDbStandard", "BreweryDbStandard\BreweryDbStandard.csproj", "{30A6EDAA-E957-45CC-8A18-7BE105CFDB3B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RasaNluNetStandard", "RasaNluNetStandard\RasaNluNetStandard.csproj", "{30A6EDAA-E957-45CC-8A18-7BE105CFDB3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreweryDbStandard.Tests", "BreweryDbStandard.Tests\BreweryDbStandard.Tests.csproj", "{2135A357-ABAA-4E93-B5CA-054C2E912C8B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RasaNluNetStandard.Tests", "RasaNluNetStandard.Tests\RasaNluNetStandard.Tests.csproj", "{2135A357-ABAA-4E93-B5CA-054C2E912C8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
