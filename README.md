@@ -1,7 +1,7 @@
 # RasaNlu.NetStandard
 
 [![Build status](https://dev.azure.com/ironmoosedevelopment/Iron%20Moose%20Development/_apis/build/status/RasaNlu.NetStandard-CI)](https://dev.azure.com/ironmoosedevelopment/Iron%20Moose%20Development/_build/latest?definitionId=19)
-[![NuGet](https://img.shields.io/nuget/v/BreweryDbStandard.svg)](https://www.nuget.org/packages/RasaNlu.NetStandard)
+[![NuGet](https://img.shields.io/nuget/v/RasaNlu.NetStandard.svg)](https://www.nuget.org/packages/RasaNlu.NetStandard)
 
 ## Usage
 ```
