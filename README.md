@@ -1,62 +1,18 @@
-# BreweryDbStandard
+# RasaNlu.NetStandard
 
-![](https://cswendrowski.visualstudio.com/_apis/public/build/definitions/ec071271-3590-43d2-b089-e62d4b125c9a/5/badge)
-[![NuGet](https://img.shields.io/nuget/v/BreweryDbStandard.svg)](https://www.nuget.org/packages/BreweryDbStandard)
+[![Build status](https://dev.azure.com/ironmoosedevelopment/Iron%20Moose%20Development/_apis/build/status/RasaNlu.NetStandard-CI)](https://dev.azure.com/ironmoosedevelopment/Iron%20Moose%20Development/_build/latest?definitionId=19)
+[![NuGet](https://img.shields.io/nuget/v/BreweryDbStandard.svg)](https://www.nuget.org/packages/RasaNlu.NetStandard)
 
 ## Usage
-
-### Create a Client
-
-```csharp
-var breweryDbClient = new BreweryDB("YOUR API KEY");
 ```
-
-### Basic Search
-
-```csharp
-var result = await breweryDbClient.Search("Nitro Stout");
-
-foreach (var beer in result.Data)
-{
-    Console.WriteLine(beer.Name);
-}
+var client = new RasaNluClient("http://localhost:5000");
+var result = await client.ParseAsRasa("Why hello there", "Project");
 ```
-
-### Search with Parameters
-
-```csharp
-var searchParams = new SearchParams()
-{
-    Type = SearchTypes.BEER,
-    WithBreweries = true
-};
-
-var result = await breweryDbClient.Search("Nitro Stout", searchParams);
-
-foreach (var beer in result.Data)
-{
-    Console.WriteLine(beer.Name);
-}
-```
-
-#### A Note on Premium Features
-
-BreweryDB has a collection of premium-only queries and data, documented [here](http://www.brewerydb.com/developers/docs-endpoint/search_index). All `SearchParams` that are premium-only have been annotated `[Premium]`. This library does nothing with this metadata, but it is useful for your reference.
-
-## Roadmap
-
-- [x] Minimal .NET Standard Version
-- [x] Swap to HttpClient
-- [x] Basic Search Functionality
-- [x] Search Parameters
-- [x] `[Premium]` Annotation
-- [ ] Expand to other API calls
-
 
 ## License
 MIT License
 
-Copyright (c) 2017 Cody Swendrowski
+Copyright (c) 2019 Iron Moose Development
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
