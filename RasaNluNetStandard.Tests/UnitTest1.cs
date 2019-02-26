@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using IronMooseDevelopment.RasaNlu.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 using Shouldly;
 using System;
 using System.Threading.Tasks;
@@ -45,6 +47,18 @@ namespace IronMooseDevelopment.RasaNlu.Tests
             result.Entities.ShouldNotBeEmpty();
             result.Intents.ShouldNotBeEmpty();
             result.TopScoringIntent.ShouldNotBeNull();
+        }
+
+        [TestMethod]
+        public void RasaAsLuisDeserialize()
+        {
+            var json = "{ \"entity\": \"floor 5 room 507\", \"type\": \"Space\", \"startIndex\": 28, \"endIndex\": 43, \"score\": null }";
+
+            Should.NotThrow(() =>
+            {
+                var response = JsonConvert.DeserializeObject<LuisEntity>(json);
+                response.Score.HasValue.ShouldBeFalse();
+            });
         }
     }
 }

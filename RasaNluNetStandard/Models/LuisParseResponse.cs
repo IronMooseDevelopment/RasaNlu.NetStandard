@@ -33,7 +33,7 @@ namespace IronMooseDevelopment.RasaNlu.Models
         public long EndIndex { get; set; }
 
         [JsonProperty("score")]
-        public double Score { get; set; }
+        public double? Score { get; set; }
     }
 
     public partial class LuisIntent
