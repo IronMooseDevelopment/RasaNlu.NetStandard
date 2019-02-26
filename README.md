@@ -4,7 +4,7 @@
 [![NuGet](https://img.shields.io/nuget/v/RasaNlu.NetStandard.svg)](https://www.nuget.org/packages/RasaNlu.NetStandard)
 
 ## Usage
-```
+```cs
 var client = new RasaNluClient("http://localhost:5000");
 var result = await client.ParseAsRasa("Why hello there", "Project");
 ```
