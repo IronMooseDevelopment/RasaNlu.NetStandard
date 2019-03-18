@@ -1,7 +1,9 @@
 ﻿using IronMooseDevelopment.RasaNlu.Models;
 using Newtonsoft.Json;
 using System;
+using System.IO;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -55,5 +57,18 @@ namespace IronMooseDevelopment.RasaNlu
         }
 
         #endregion
+
+        public async Task Train(FileStream trainDataYamlFile, string project)
+        {
+            var body = new StreamContent(trainDataYamlFile);
+            body.Headers.ContentType = new MediaTypeHeaderValue("application/x-yml");
+
+            var response = await Client.PostAsync(BaseDomain + "/train?project=" + project, body);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception("Did not get a successful response from RASA. Reason: " + response.RequestMessage);
+            }
+        }
     }
 }
