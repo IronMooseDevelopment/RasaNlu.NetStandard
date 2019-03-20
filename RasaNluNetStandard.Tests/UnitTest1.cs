@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using Shouldly;
 using System;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace IronMooseDevelopment.RasaNlu.Tests
@@ -59,6 +60,28 @@ namespace IronMooseDevelopment.RasaNlu.Tests
                 var response = JsonConvert.DeserializeObject<LuisEntity>(json);
                 response.Score.HasValue.ShouldBeFalse();
             });
+        }
+
+        [TestMethod]
+        public async Task CanTrain()
+        {
+            var client = new RasaNluClient("http://localhost:5000");
+
+            using (var fileStream = new FileStream("train.yml", FileMode.Open))
+            {
+                var success = await client.Train(fileStream, "test");
+                success.ShouldBeTrue();
+            }
+        }
+
+        [TestMethod]
+        public async Task CanGetStatus()
+        {
+            var client = new RasaNluClient("http://localhost:5000");
+
+            var status = await client.Status();
+
+            status.AvailableProjects.ShouldNotBeNull();
         }
     }
 }

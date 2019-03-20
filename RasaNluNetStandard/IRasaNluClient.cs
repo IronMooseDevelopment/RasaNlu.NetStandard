@@ -7,8 +7,13 @@ namespace IronMooseDevelopment.RasaNlu
     public interface IRasaNluClient
     {
         Task<DialogflowParseResponse> ParseAsDialogflow(string parseQuery, string project);
+
         Task<LuisParseResponse> ParseAsLuis(string parseQuery, string project);
+
         Task<RasaParseResponse> ParseAsRasa(string parseQuery, string project);
-        Task Train(FileStream trainDataYamlFile, string project);
+
+        Task<bool> Train(FileStream trainDataYamlFile, string project);
+
+        Task<RasaStatus> Status();
     }
 }

@@ -58,17 +58,36 @@ namespace IronMooseDevelopment.RasaNlu
 
         #endregion
 
-        public async Task Train(FileStream trainDataYamlFile, string project)
+        public virtual async Task<RasaStatus> Status()
         {
-            var body = new StreamContent(trainDataYamlFile);
-            body.Headers.ContentType = new MediaTypeHeaderValue("application/x-yml");
-
-            var response = await Client.PostAsync(BaseDomain + "/train?project=" + project, body);
+            var response = await Client.GetAsync(BaseDomain + "/status");
 
             if (!response.IsSuccessStatusCode)
             {
                 throw new Exception("Did not get a successful response from RASA. Reason: " + response.RequestMessage);
             }
+
+            return JsonConvert.DeserializeObject<RasaStatus>(await response.Content.ReadAsStringAsync());
+        }
+
+        public virtual async Task<bool> Train(FileStream trainDataYamlFile, string project)
+        {
+            var body = new StreamContent(trainDataYamlFile);
+            body.Headers.ContentType = new MediaTypeHeaderValue("application/x-yml");
+
+            var request = new HttpRequestMessage(HttpMethod.Post, BaseDomain + "/train?project=" + project)
+            {
+                Content = body,
+            };
+
+            var response = await Client.SendAsync(request);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception("Did not get a successful response from RASA. Reason: " + response.RequestMessage);
+            }
+
+            return true;
         }
     }
 }

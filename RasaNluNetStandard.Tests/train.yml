@@ -1,0 +1,24 @@
+language: "en"
+
+pipeline: "tensorflow_embedding"
+
+data: {
+  "rasa_nlu_data": {
+    "regex_features": [],
+    "entity_synonyms": [],
+    "common_examples": [
+      {
+        "text": "I would like green eggs and ham",
+        "intent": "CommandRequest",
+        "entities": [
+          {
+            "entity": "Food",
+            "value": "green eggs and ham",
+            "start": 13,
+            "end": 30
+          }
+        ]
+      }
+    ]
+  }
+}
