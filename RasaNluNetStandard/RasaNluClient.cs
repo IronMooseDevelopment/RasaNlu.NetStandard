@@ -1,6 +1,5 @@
-﻿using IronMooseDevelopment.RasaNlu.Models;
+using IronMooseDevelopment.RasaNlu.Models;
 using Newtonsoft.Json;
-using System;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -50,7 +49,16 @@ namespace IronMooseDevelopment.RasaNlu
 
             if (!response.IsSuccessStatusCode)
             {
-                throw new Exception("Did not get a successful response from RASA. Reason: " + response.RequestMessage);
+                string errorMessage;
+                try
+                {
+                    errorMessage = JsonConvert.DeserializeObject<ErrorResponse>(await response.Content.ReadAsStringAsync()).Error;
+                }
+                catch
+                {
+                    throw new RasaException("Did not get a successful response from RASA. Reason: " + response.RequestMessage);
+                }
+                throw new RasaException(errorMessage);
             }
 
             return JsonConvert.DeserializeObject<T>(await response.Content.ReadAsStringAsync());
@@ -64,7 +72,16 @@ namespace IronMooseDevelopment.RasaNlu
 
             if (!response.IsSuccessStatusCode)
             {
-                throw new Exception("Did not get a successful response from RASA. Reason: " + response.RequestMessage);
+                string errorMessage;
+                try
+                {
+                    errorMessage = JsonConvert.DeserializeObject<ErrorResponse>(await response.Content.ReadAsStringAsync()).Error;
+                }
+                catch
+                {
+                    throw new RasaException("Did not get a successful response from RASA. Reason: " + response.RequestMessage);
+                }
+                throw new RasaException(errorMessage);
             }
 
             return JsonConvert.DeserializeObject<RasaStatus>(await response.Content.ReadAsStringAsync());
@@ -84,7 +101,16 @@ namespace IronMooseDevelopment.RasaNlu
 
             if (!response.IsSuccessStatusCode)
             {
-                throw new Exception("Did not get a successful response from RASA. Reason: " + response.RequestMessage);
+                string errorMessage;
+                try
+                {
+                    errorMessage = JsonConvert.DeserializeObject<ErrorResponse>(await response.Content.ReadAsStringAsync()).Error;
+                }
+                catch
+                {
+                    throw new RasaException("Did not get a successful response from RASA. Reason: " + response.RequestMessage);
+                }
+                throw new RasaException(errorMessage);
             }
 
             return true;
