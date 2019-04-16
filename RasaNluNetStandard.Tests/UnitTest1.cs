@@ -83,5 +83,11 @@ namespace IronMooseDevelopment.RasaNlu.Tests
 
             status.AvailableProjects.ShouldNotBeNull();
         }
+        
+        [TestMethod]
+        public async Task RasaProjectNotFound()
+        {
+            await Assert.ThrowsExceptionAsync<RasaException>(() => client.ParseAsRasa("some test utterance", "noproject"));
+        }
     }
 }
