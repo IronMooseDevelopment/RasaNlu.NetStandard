@@ -12,7 +12,7 @@ namespace IronMooseDevelopment.RasaNlu
 
         Task<RasaParseResponse> ParseAsRasa(string parseQuery, string project);
 
-        Task<bool> Train(FileStream trainDataYamlFile, string project);
+        Task<bool> Train(Stream trainData, string project);
 
         Task<RasaStatus> Status();
     }
