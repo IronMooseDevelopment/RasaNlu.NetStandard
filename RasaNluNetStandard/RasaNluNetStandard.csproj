@@ -6,7 +6,7 @@
     <Authors>Cody Swendrowski</Authors>
     <Company>Iron Moose Development</Company>
     <Description>A simple HttpClient implementation of the RASA NLU API that targets .NET Standard 1.3+</Description>
-    <Version>3.3.0</Version>
+    <Version>3.4.0</Version>
     <PackageProjectUrl>https://github.com/IronMooseDevelopment/RasaNlu.NetStandard</PackageProjectUrl>
     <PackageLicenseUrl>https://choosealicense.com/licenses/mit/</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/IronMooseDevelopment/RasaNlu.NetStandard</RepositoryUrl>
