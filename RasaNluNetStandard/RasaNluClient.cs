@@ -87,9 +87,9 @@ namespace IronMooseDevelopment.RasaNlu
             return JsonConvert.DeserializeObject<RasaStatus>(await response.Content.ReadAsStringAsync());
         }
 
-        public virtual async Task<bool> Train(FileStream trainDataYamlFile, string project)
+        public virtual async Task<bool> Train(Stream trainData, string project)
         {
-            var body = new StreamContent(trainDataYamlFile);
+            var body = new StreamContent(trainData);
             body.Headers.ContentType = new MediaTypeHeaderValue("application/x-yml");
 
             var request = new HttpRequestMessage(HttpMethod.Post, BaseDomain + "/train?project=" + project)
