@@ -10,13 +10,14 @@ namespace IronMooseDevelopment.RasaNlu
 {
     public class RasaNluClient : IRasaNluClient
     {
-        static readonly HttpClient Client = new HttpClient();
+        private HttpClient Client { get; set; }
 
         private string BaseDomain { get; set; }
 
-        public RasaNluClient(string baseDomain)
+        public RasaNluClient(string baseDomain, HttpClient httpClient = null)
         {
             BaseDomain = baseDomain;
+            Client = httpClient ?? new HttpClient();
         }
 
         #region Parse
