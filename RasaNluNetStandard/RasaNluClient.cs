@@ -18,6 +18,12 @@ namespace IronMooseDevelopment.RasaNlu
         {
             BaseDomain = baseDomain;
         }
+        
+        public RasaNluClient(string baseDomain, TimeSpan timeout)
+        {
+            BaseDomain = baseDomain;
+            Client.Timeout = timeout;
+        }
 
         #region Parse
 
